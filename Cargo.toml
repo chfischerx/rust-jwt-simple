@@ -1,5 +1,5 @@
 [package]
-name = "chfischer-jwt-simple"
+name = "chfischerx-jwt-simple"
 version = "0.12.8"
 description = "Easy to use, secure, non opinionated JWT (JSON Web Tokens) implementation for Rust."
 authors = ["Frank Denis <github@pureftpd.org>"]
