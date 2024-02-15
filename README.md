@@ -31,6 +31,8 @@
 
 # JWT-Simple
 
+> Note: This is a forked version which contains an additional JWT header for a nonce!
+
 A new JWT (JSON Web Tokens) implementation for Rust that focuses on simplicity, while avoiding common JWT security pitfalls.
 
 `jwt-simple` is unopinionated and supports all commonly deployed authentication and signature algorithms:
