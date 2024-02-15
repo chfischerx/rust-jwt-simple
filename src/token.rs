@@ -92,6 +92,11 @@ impl TokenMetadata {
     pub fn certificate_sha256_thumbprint(&self) -> Option<&str> {
         self.jwt_header.certificate_sha256_thumbprint.as_deref()
     }
+
+    /// The nonce for this token ("nonce")
+    pub fn nonce(&self) -> Option<&str> {
+        self.jwt_header.nonce.as_deref()
+    }
 }
 
 impl Token {

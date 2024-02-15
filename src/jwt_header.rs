@@ -36,6 +36,9 @@ pub(crate) struct JWTHeader {
 
     #[serde(rename = "x5t#S256", default, skip_serializing_if = "Option::is_none")]
     pub certificate_sha256_thumbprint: Option<String>,
+
+    #[serde(rename = "nonce", default, skip_serializing_if = "Option::is_none")]
+    pub nonce: Option<String>,
 }
 
 impl Default for JWTHeader {
@@ -52,6 +55,7 @@ impl Default for JWTHeader {
             certificate_sha256_thumbprint: None,
             signature_type: Some("JWT".to_string()),
             critical: None,
+            nonce: None,
         }
     }
 }
@@ -84,6 +88,9 @@ impl JWTHeader {
         }
         if self.certificate_sha256_thumbprint.is_none() {
             self.certificate_sha256_thumbprint = metadata.certificate_sha256_thumbprint.clone();
+        }
+        if self.nonce.is_none() {
+            self.nonce = metadata.nonce.clone();
         }
         self
     }

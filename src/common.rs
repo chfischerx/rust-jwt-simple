@@ -86,6 +86,7 @@ pub struct KeyMetadata {
     pub(crate) certificate_url: Option<String>,
     pub(crate) certificate_sha1_thumbprint: Option<String>,
     pub(crate) certificate_sha256_thumbprint: Option<String>,
+    pub(crate) nonce: Option<String>,
 }
 
 impl KeyMetadata {
@@ -153,6 +154,12 @@ impl KeyMetadata {
         );
         self.certificate_sha256_thumbprint = Some(thumbprint);
         Ok(self)
+    }
+
+    /// Add a key set URL to the metadata ("jku")
+    pub fn with_nonce(mut self, nonce: impl ToString) -> Self {
+        self.nonce = Some(nonce.to_string());
+        self
     }
 }
 
